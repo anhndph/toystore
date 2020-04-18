@@ -18,4 +18,20 @@ export class AddProductComponent implements OnInit {
       this.router.navigateByUrl("admin/manager");
     });
   }
+
+  url: string | ArrayBuffer;
+  onSelectFile(event) { // called each time file input changes
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+        this.product.images=this.url.toString();
+      }
+    }
+  }
+
+
+
+
 }

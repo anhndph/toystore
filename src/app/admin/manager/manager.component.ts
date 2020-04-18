@@ -11,6 +11,7 @@ export class ManagerComponent implements OnInit {
   products: Product[];
   page= 1;
   pageSize = 5;
+  length;
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
@@ -19,11 +20,13 @@ export class ManagerComponent implements OnInit {
   getProducts() {
     this.productService.getListProduct().subscribe(data => {
       this.products = data;
+      this.length = this.products.length;
     });
   }
   removeProduct(id) {
      this.productService.deleteProduct(id).subscribe(data => {
       this.getProducts();
     });
+
   }
 }

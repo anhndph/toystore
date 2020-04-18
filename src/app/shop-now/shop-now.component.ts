@@ -13,7 +13,7 @@ export class ShopNowComponent implements OnInit {
   products: Product[];
   page = 1;
   pageSize = 9;
-
+  length ;
   ngOnInit(): void {
     this.getProducts();
   }
@@ -22,7 +22,7 @@ export class ShopNowComponent implements OnInit {
   getProducts() {
     this.productService.getListProduct().subscribe(data => {
       this.products = data;
-      console.log(data)
+      this.length = this.products.length;
     });
   }
 
