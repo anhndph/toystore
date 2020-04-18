@@ -43,7 +43,9 @@ import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap'
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    RouterModule, NgbModule, NgbPaginationModule
+    RouterModule,
+    NgbModule,
+    NgbPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
