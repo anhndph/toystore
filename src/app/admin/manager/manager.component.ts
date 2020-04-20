@@ -9,7 +9,8 @@ import { ProductService } from '../../product.service';
 })
 export class ManagerComponent implements OnInit {
   products: Product[];
-  page= 1;
+  keywords: string;
+  page = 1;
   pageSize = 5;
   length;
   constructor(private productService: ProductService) { }
@@ -24,9 +25,22 @@ export class ManagerComponent implements OnInit {
     });
   }
   removeProduct(id) {
-     this.productService.deleteProduct(id).subscribe(data => {
+    this.productService.deleteProduct(id).subscribe(data => {
       this.getProducts();
     });
 
   }
+  search(){
+    if(this.keywords==undefined){
+      this.getProducts();
+      
+    }
+    this.productService.searchProduct(this.keywords).subscribe(data => {
+      this.products = data;
+      this.length = this.products.length;
+      this.keywords=undefined;
+    });
+    
+  }
+
 }

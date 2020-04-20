@@ -10,20 +10,22 @@ import { ProductService } from "../product.service";
 export class ShopNowComponent implements OnInit {
 
   constructor(private productService: ProductService) { }
+  
   products: Product[];
   page = 1;
   pageSize = 9;
-  length ;
+  length;
   ngOnInit(): void {
     this.getProducts();
   }
-
 
   getProducts() {
     this.productService.getListProduct().subscribe(data => {
       this.products = data;
       this.length = this.products.length;
     });
+
+    
   }
 
 }

@@ -14,6 +14,10 @@ export class ProductService {
     //return this.products;
     return this.httpClient.get<Product[]>(this.apiurl);
   }
+  searchProduct(keywords: String): Observable<Product[]> {
+    
+    return this.httpClient.get<Product[]>(this.apiurl + "?search=" + keywords);
+  }
   deleteProduct(id): Observable<Product> {
     return this.httpClient.delete<Product>(`${this.apiurl}/${id}`);
   }
@@ -23,8 +27,8 @@ export class ProductService {
   insertProduct(product): Observable<Product> {
     return this.httpClient.post<Product>(`${this.apiurl}`, product);
   }
-   updateProduct(product):Observable<Product> {
-    return this.httpClient.put<Product>(`${this.apiurl}/${product.id}`,product);
+  updateProduct(product): Observable<Product> {
+    return this.httpClient.put<Product>(`${this.apiurl}/${product.id}`, product);
   }
 
 }

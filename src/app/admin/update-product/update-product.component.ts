@@ -16,6 +16,7 @@ export class UpdateProductComponent implements OnInit {
   product: Product;
   ngOnInit(): void {
     this.getProduct();
+   
   }
   updateProduct() {
     this.productService.updateProduct(this.product).subscribe(data => {
@@ -27,7 +28,20 @@ export class UpdateProductComponent implements OnInit {
     this.activatedRoute.params.subscribe(param => {
       this.productService.getProductById(param.productId).subscribe(data => {
         this.product = data;
+        this.url = this.product.images;
       });
     });
   }
+  url: string | ArrayBuffer;
+  onSelectFile(event) { // called each time file input changes
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+        this.product.images = this.url.toString();
+      }
+    }
+  }
+
 }

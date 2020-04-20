@@ -1,7 +1,19 @@
 <h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Management Product</h3>
-<div style="text-align:center;margin-bottom:20px">
+<div style="text-align:center;margin-bottom: 10px;">
   <a class="btn btn-primary" routerLink="insert-product"><i class="fas fa-plus-circle"></i> Add new product</a>
+  <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+	<div class="input-group">
+	  <input type="text" class="form-control bg-light border-0 small" name="keywords" [(ngModel)]="keywords" placeholder="Tên sản phẩm" aria-label="Search" aria-describedby="basic-addon2">
+	  <div class="input-group-append">
+		 <button class="btn btn-primary" type="button" (click)="search()">
+			<i class="fas fa-search fa-sm"></i>
+		 </button>
+	  </div>
+	</div>
+ </form>
 </div>
+<!-- Topbar Search -->
+
 <div>
 	<h3 style="text-align:center">List products</h3>
 	<table class="table" style="width:80%;margin:auto">

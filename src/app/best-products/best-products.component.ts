@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from "../../app/Product";
 
 @Component({
   selector: 'app-best-products',
@@ -8,8 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class BestProductsComponent implements OnInit {
 
   constructor() { }
+  keywords: String;
+  products: Product[];
 
   ngOnInit(): void {
+   
   }
 
 }
