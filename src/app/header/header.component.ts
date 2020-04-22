@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit {
   @Input() products: Product[];
   ngOnInit(): void {
   }
-
+  
   search() {
     this.productService.searchProduct(this.keywords).subscribe(data => {
       this.products = data;
