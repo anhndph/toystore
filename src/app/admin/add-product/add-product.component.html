@@ -1,18 +1,36 @@
 <div class="form-add-pro">
 	<h3 class="title text-center mb-lg-5 mb-md-4 mb-sm-4 mb-3">Add new product</h3>
-	<form>
+	<form method="POST" (ngSubmit)="addProduct(formAdd)" #formAdd="ngForm">
 		<div class="form-group">
 			<label for="">Name</label>
-			<input type="text" [(ngModel)]="product.name" name="name" class="form-control" id="exampleInputEmail1">
+			
+			<span class="error_s" *ngIf="txtName.touched && txtName?.errors?.required" >
+				(*require name)
+			</span>
+
+			<input type="text" [(ngModel)]="product.name" name="name"  class="form-control" id="exampleInputEmail1"
+				#txtName="ngModel" required >
 		</div>
 		<div class="form-group">
 			<label for="exampleInputPassword1">Price</label>
-			<input type="text" class="form-control" [(ngModel)]="product.price" name="price" id="exampleInputPassword1">
+
+			<span class="error_s" *ngIf="txtPrice.touched && txtPrice?.errors?.required">
+				(*require price)
+			</span>
+			
+			<input type="text" class="form-control" [(ngModel)]="product.price" name="price" id="exampleInputPassword1"
+				#txtPrice="ngModel" required>
 		</div>
 		<div class="form-group">
 			<label for="exampleInputPassword1">Description</label>
-			<input type="text" class="form-control" [(ngModel)]="product.description" name="description"
-				id="exampleInputPassword1">
+
+			<span class="error_s" *ngIf="txtDescription.touched && txtDescription?.errors?.required" >
+				(*require description)
+			</span>
+
+			<input type="text" class="form-control" [(ngModel)]="product.description" name="description" required
+			#txtDescription="ngModel"	id="exampleInputPassword1">
+
 		</div>
 
 		<div class="form-group">
@@ -20,12 +38,11 @@
 			<br>
 			<!-- <input type="text" class="form-control" [(ngModel)]="product.images" name="images" id="exampleInputPassword1"> -->
 			<img [src]="url" height="200"> <br />
-			<input type='file' (change)="onSelectFile($event)">
+			<input type='file' (change)="onSelectFile($event)" required>
 		</div>
-		
 		<div class="add-new-btn" style="text-align:center;margin-bottom:10px">
 			<button class="btn btn-primary" routerLink="/admin/manager">Back</button>
-			<button class="btn btn-primary" (click)="addProduct()">Add Product</button>
+			<button class="btn btn-primary" [disabled]="formAdd.invalid" type="submit">Add Product</button>
 		</div>
 	</form>
 </div>

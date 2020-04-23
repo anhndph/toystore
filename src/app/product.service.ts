@@ -15,7 +15,6 @@ export class ProductService {
     return this.httpClient.get<Product[]>(this.apiurl);
   }
   searchProduct(keywords: String): Observable<Product[]> {
-    
     return this.httpClient.get<Product[]>(this.apiurl + "?search=" + keywords);
   }
   deleteProduct(id): Observable<Product> {
