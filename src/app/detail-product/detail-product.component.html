@@ -1,0 +1,101 @@
+<section class="banner-bottom py-lg-5 py-3">
+   <div class="container">
+      <div style="position: relative; width: 100%;min-height: 700px;">
+         <div style="position: absolute; width: 100%;margin-top: 15px;">
+            <div class="detail-product">
+               <div class="detail-image">
+                  <div class="image">
+                     <img [src]="product.images" width="100%" alt="">
+                  </div>
+               </div>
+
+               <div class="detail-content">
+                  <div class="content">
+                     <h3 class="title">{{product.name}}</h3>
+                     <p>
+                        <span class="item-price">{{'$'+product.price}}</span>
+                        <del>$1999</del>
+                     </p>
+                     <div class="star">
+                        <a href="#" class="star-rate">
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="fas fa-star"></i>
+                           <i class="far fa-star"></i>
+                           <span> 4.0</span>
+                        </a>
+                     </div>
+                     <div class="size">
+                        <h5>Size:</h5>
+                        <select name="" class="choose-size" id="">
+                           <option value="">Small</option>
+                           <option value="">Medium</option>
+                           <option value="">Large</option>
+                        </select>
+                     </div>
+                     <div class="types">
+                        <div class="type">
+                           <input type="radio" name="type1" id="type1">
+                           <label for="type1">{{product.name}}(red)</label>
+                        </div>
+                        <div class="type">
+                           <input type="radio" name="type1" id="type2">
+                           <label for="type2">{{product.name}}(green)</label>
+                        </div>
+                     </div>
+                     <div class="add-to-cart">
+                        <form action="#" method="post">
+                           <input type="button" class="btn-addToCart" value="Add To Cart">
+                        </form>
+                     </div>
+                     <div>
+                        <ul class="footer-social text-left mt-lg-4 mt-3">
+                           <li>Share On : </li>
+                           <li class="mx-1">
+                              <a href="#">
+                                 <span class="fab fa-facebook-f"></span>
+                              </a>
+                           </li>
+                           <li class="">
+                              <a href="#">
+                                 <span class="fab fa-twitter"></span>
+                              </a>
+                           </li>
+                           <li class="mx-1">
+                              <a href="#">
+                                 <span class="fab fa-google-plus-g"></span>
+                              </a>
+                           </li>
+                           <li class="">
+                              <a href="#">
+                                 <span class="fab fa-linkedin-in"></span>
+                              </a>
+                           </li>
+                           <li class="mx-1">
+                              <a href="#">
+                                 <span class="fas fa-rss"></span>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+
+
+                  </div>
+               </div>
+               <div style="clear: both;"></div>
+               <div class="description">
+                  <ul>
+                     <li class="resp-tab-item resp-tab-active" aria-controls="tab_item-0" role="tab">DESCRIPTION</li>
+                  </ul>
+                  <div style="padding: 20px;">
+                     <p>
+                        {{product.description}}
+                     </p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>

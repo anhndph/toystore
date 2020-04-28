@@ -9,6 +9,7 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { ManagerComponent } from './admin/manager/manager.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { UpdateProductComponent } from './admin/update-product/update-product.component';
+import { DetailProductComponent } from './detail-product/detail-product.component';
 
 
 const routes: Routes = [
@@ -17,10 +18,12 @@ const routes: Routes = [
     path: '', component: BestProductsComponent, children: [
       { path: "home", component: ProductComponent },
       { path: "about", component: AboutComponent },
-      { path: "shopnow", component: ShopNowComponent }
+      { path: "shopnow", component: ShopNowComponent },
+      { path: "shopnow/detail/:productId", component: DetailProductComponent },
+      
     ]
   }, 
-  
+
   {
     path: 'admin', component: DashboardManagerComponent, children: [
       { path: "", component: DashboardComponent },

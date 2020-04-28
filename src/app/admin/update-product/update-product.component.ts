@@ -32,6 +32,9 @@ export class UpdateProductComponent implements OnInit {
       });
     });
   }
+
+
+  
   url: string | ArrayBuffer;
   onSelectFile(event) { // called each time file input changes
     if (event.target.files && event.target.files[0]) {

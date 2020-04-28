@@ -82,9 +82,9 @@ export class AddProductComponent implements OnInit {
   getErrorMes(err, value) {
     let messages = {
       'required': 'Do not leave this field blank',
-      'maxlength': `Maximum of  ${value.requiredLength} characters`,
-      'minlength': `Minimum of ${value.requiredLength} characters`,
-      'pattern': 'wrong format',
+      'maxlength': `tối đa  ${value.requiredLength} kí tự`,
+      'minlength': `tối thiểu ${value.requiredLength} kí tự`,
+      'pattern': 'Không đúng định dạng',
     };
     return messages[err];
   }
