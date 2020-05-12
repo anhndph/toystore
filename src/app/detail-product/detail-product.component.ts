@@ -18,7 +18,7 @@ export class DetailProductComponent implements OnInit {
   ngOnInit(): void {
     this.getProduct();
   }
-
+  
   product: Product;
   getProduct() {
     this.activatedRoute.params.subscribe(param => {

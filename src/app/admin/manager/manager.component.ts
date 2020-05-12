@@ -30,17 +30,16 @@ export class ManagerComponent implements OnInit {
     });
 
   }
-  search(){
-    if(this.keywords==undefined){
+  search() {
+    if (this.keywords == undefined) {
       this.getProducts();
-      
+      return;
     }
     this.productService.searchProduct(this.keywords).subscribe(data => {
       this.products = data;
       this.length = this.products.length;
-      this.keywords=undefined;
     });
-    
+
   }
 
 }

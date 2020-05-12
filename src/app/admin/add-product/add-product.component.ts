@@ -54,13 +54,13 @@ export class AddProductComponent implements OnInit {
       Validators.required,
       Validators.maxLength(30),
       Validators.minLength(5),
-      Validators.pattern('^[a-zA-Z]+[a-zA-Z ]*')
+      Validators.pattern('^[a-zA-Z]+[ a-zA-Z ]*')
     ]],
     price: [null, [
       Validators.required,
       // Validators.length()
       Validators.maxLength(20),
-      Validators.minLength(2),
+      Validators.minLength(1),
       Validators.pattern('[0-9]*')
     ]],
     description: [null, [
@@ -72,16 +72,13 @@ export class AddProductComponent implements OnInit {
     ]],
     image: [null, [
       Validators.required,
-      // Validators.length()
-      // Validators.maxLength(100),
-      // Validators.minLength(1),
-      // Validators.pattern('^[a-zA-Z]+[ a-zA-Z ]*')
+
     ]],
   });
 
   getErrorMes(err, value) {
     let messages = {
-      'required': 'Do not leave this field blank',
+      'required': 'Không để trống ô này',
       'maxlength': `tối đa  ${value.requiredLength} kí tự`,
       'minlength': `tối thiểu ${value.requiredLength} kí tự`,
       'pattern': 'Không đúng định dạng',

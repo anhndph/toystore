@@ -20,7 +20,8 @@ export class HeaderComponent implements OnInit {
   search() {
     this.productService.searchProduct(this.keywords).subscribe(data => {
       this.products = data;
-      this.router.navigateByUrl("/shopnow");
+      
+      //this.router.navigateByUrl("/shopnow");
     });
   }
 
